@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="APIKeyCell" id="65U-b8-m42" customClass="APIKeyCell" customModule="QRReader" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="65U-b8-m42" id="Ui6-Vx-tKJ">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="API Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHi-bJ-U09">
+                        <rect key="frame" x="20" y="12" width="61" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00000000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIl-Zw-cZM">
+                        <rect key="frame" x="274" y="12" width="120" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="iIl-Zw-cZM" secondAttribute="bottom" constant="11" id="3em-wE-l2Z"/>
+                    <constraint firstItem="iIl-Zw-cZM" firstAttribute="top" secondItem="Ui6-Vx-tKJ" secondAttribute="top" constant="12" id="6jA-rx-QoZ"/>
+                    <constraint firstAttribute="bottom" secondItem="KHi-bJ-U09" secondAttribute="bottom" constant="11" id="fuh-HK-IUO"/>
+                    <constraint firstItem="KHi-bJ-U09" firstAttribute="leading" secondItem="Ui6-Vx-tKJ" secondAttribute="leading" constant="20" symbolic="YES" id="h3b-df-2Gd"/>
+                    <constraint firstItem="iIl-Zw-cZM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KHi-bJ-U09" secondAttribute="trailing" constant="30" id="iTc-8G-Qyt"/>
+                    <constraint firstItem="KHi-bJ-U09" firstAttribute="top" secondItem="Ui6-Vx-tKJ" secondAttribute="top" constant="12" id="jD6-La-hPA"/>
+                    <constraint firstAttribute="trailing" secondItem="iIl-Zw-cZM" secondAttribute="trailing" constant="20" symbolic="YES" id="tVG-W5-X8G"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="APIKeyLabel" destination="iIl-Zw-cZM" id="FUd-43-uth"/>
+            </connections>
+            <point key="canvasLocation" x="-97" y="91"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
