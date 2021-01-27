@@ -8,12 +8,20 @@
 import AVFoundation
 import UIKit
 
+enum Result {
+    case success
+    case alreadyChecked
+}
+
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupQRReader()
         navigationItem.title = "Scanner"
         #warning("Change icon when flash is on")
@@ -50,35 +58,35 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         #warning("Refactor it!!")
         view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
-        
+
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
         let videoInput: AVCaptureDeviceInput
-        
+
         do {
             videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
         } catch {
             return
         }
-        
+
         if (captureSession.canAddInput(videoInput)) {
             captureSession.addInput(videoInput)
         } else {
             failed()
             return
         }
-        
+
         let metadataOutput = AVCaptureMetadataOutput()
-        
+
         if (captureSession.canAddOutput(metadataOutput)) {
             captureSession.addOutput(metadataOutput)
-            
+
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             metadataOutput.metadataObjectTypes = [.qr]
         } else {
             failed()
             return
         }
-        
+
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.frame = view.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
@@ -118,6 +126,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             found(code: stringValue)
+            let resultVIew = ResultView()
+            resultVIew.scanResult = .success
+            view.addSubview(resultVIew)
         }
         
         dismiss(animated: true)

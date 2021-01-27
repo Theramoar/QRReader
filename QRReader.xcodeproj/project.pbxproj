@@ -21,6 +21,7 @@
 		D253A38B25C1B8280003A155 /* SoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A38A25C1B8280003A155 /* SoundCell.swift */; };
 		D253A38E25C1B9B50003A155 /* SoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D253A38D25C1B9B50003A155 /* SoundCell.xib */; };
 		D253A39125C1BA8B0003A155 /* APIKeyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D253A39025C1BA8B0003A155 /* APIKeyCell.xib */; };
+		D253A39425C1C0780003A155 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A39325C1C0780003A155 /* ResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D253A38A25C1B8280003A155 /* SoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundCell.swift; sourceTree = "<group>"; };
 		D253A38D25C1B9B50003A155 /* SoundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoundCell.xib; sourceTree = "<group>"; };
 		D253A39025C1BA8B0003A155 /* APIKeyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APIKeyCell.xib; sourceTree = "<group>"; };
+		D253A39325C1C0780003A155 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				D253A37325C1B1640003A155 /* ScannerViewController.swift */,
+				D253A39325C1C0780003A155 /* ResultView.swift */,
 				D253A37625C1B1710003A155 /* ScannerView.xib */,
 			);
 			path = "Scanner View";
@@ -194,6 +197,7 @@
 				D253A37F25C1B57C0003A155 /* SettingViewController.swift in Sources */,
 				D253A35F25C1A6ED0003A155 /* StartViewController.swift in Sources */,
 				D253A35B25C1A6ED0003A155 /* AppDelegate.swift in Sources */,
+				D253A39425C1C0780003A155 /* ResultView.swift in Sources */,
 				D253A35D25C1A6ED0003A155 /* SceneDelegate.swift in Sources */,
 				D253A37425C1B1640003A155 /* ScannerViewController.swift in Sources */,
 			);
