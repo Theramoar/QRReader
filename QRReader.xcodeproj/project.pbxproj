@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB7C4FE125C2B8ED00DDEE91 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7C4FE025C2B8ED00DDEE91 /* NetworkDataFetcher.swift */; };
+		BB7C4FE425C2B8FA00DDEE91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7C4FE325C2B8FA00DDEE91 /* NetworkService.swift */; };
 		D253A35B25C1A6ED0003A155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A35A25C1A6ED0003A155 /* AppDelegate.swift */; };
 		D253A35D25C1A6ED0003A155 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A35C25C1A6ED0003A155 /* SceneDelegate.swift */; };
 		D253A35F25C1A6ED0003A155 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A35E25C1A6ED0003A155 /* StartViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB7C4FE025C2B8ED00DDEE91 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		BB7C4FE325C2B8FA00DDEE91 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		D253A35725C1A6ED0003A155 /* QRReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D253A35A25C1A6ED0003A155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D253A35C25C1A6ED0003A155 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 			children = (
 				D253A35A25C1A6ED0003A155 /* AppDelegate.swift */,
 				D253A35C25C1A6ED0003A155 /* SceneDelegate.swift */,
+				BB7C4FE025C2B8ED00DDEE91 /* NetworkDataFetcher.swift */,
+				BB7C4FE325C2B8FA00DDEE91 /* NetworkService.swift */,
 				D253A38525C1B6140003A155 /* Settings View */,
 				D253A37D25C1B5660003A155 /* Start View */,
 				D253A37C25C1B5550003A155 /* Scanner View */,
@@ -192,12 +198,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB7C4FE425C2B8FA00DDEE91 /* NetworkService.swift in Sources */,
 				D253A38825C1B7EF0003A155 /* APIKeyCell.swift in Sources */,
 				D253A38B25C1B8280003A155 /* SoundCell.swift in Sources */,
 				D253A37F25C1B57C0003A155 /* SettingViewController.swift in Sources */,
 				D253A35F25C1A6ED0003A155 /* StartViewController.swift in Sources */,
 				D253A35B25C1A6ED0003A155 /* AppDelegate.swift in Sources */,
 				D253A39425C1C0780003A155 /* ResultView.swift in Sources */,
+				BB7C4FE125C2B8ED00DDEE91 /* NetworkDataFetcher.swift in Sources */,
 				D253A35D25C1A6ED0003A155 /* SceneDelegate.swift in Sources */,
 				D253A37425C1B1640003A155 /* ScannerViewController.swift in Sources */,
 			);
