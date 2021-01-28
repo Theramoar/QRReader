@@ -28,7 +28,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="140" id="drs-WX-kvd"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
