@@ -16,7 +16,7 @@ enum Result {
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    
+    private var fetcher = NetworkDataFetcher()
     
     
     override func viewDidLoad() {
@@ -136,5 +136,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     func found(code: String) {
         print(code)
+        fetcher.sendAPIKeyTo(url: code) { answer in
+            
+        }
     }
 }
