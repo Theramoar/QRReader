@@ -20,6 +20,9 @@
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yWA-AL-DK4">
                         <rect key="frame" x="343" y="7" width="51" height="31"/>
                         <color key="onTintColor" systemColor="systemTealColor"/>
+                        <connections>
+                            <action selector="switchChanged:" destination="h2D-3S-O3z" eventType="valueChanged" id="p1o-ic-w8h"/>
+                        </connections>
                     </switch>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmation Sound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlA-3D-GHx">
                         <rect key="frame" x="20" y="12" width="159" height="21"/>
@@ -37,6 +40,9 @@
                     <constraint firstAttribute="trailing" secondItem="yWA-AL-DK4" secondAttribute="trailing" constant="22" id="WdS-SJ-fRK"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="soundSwitch" destination="yWA-AL-DK4" id="NhI-JM-JUA"/>
+            </connections>
             <point key="canvasLocation" x="155" y="141"/>
         </tableViewCell>
     </objects>

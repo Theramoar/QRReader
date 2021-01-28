@@ -14,6 +14,7 @@ class UserData {
     private init() {
         userDefaults = .standard
         savedAPIKey = userDefaults.string(forKey: UserData.cachedAPIKey) ?? ""
+        soundEnabled = userDefaults.bool(forKey: UserData.cachedSoundOption)
     }
     
     var savedAPIKey: String {
@@ -23,6 +24,14 @@ class UserData {
         }
     }
     
+    var soundEnabled: Bool {
+        didSet {
+            print("New Sound Option was set! - \(soundEnabled)")
+            userDefaults.setValue(soundEnabled, forKey: UserData.cachedSoundOption)
+        }
+    }
+    
     
     private static let cachedAPIKey  = "cachedAPIKey"
+    private static let cachedSoundOption = "cachedSoundOption"
 }

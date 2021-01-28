@@ -10,7 +10,6 @@
 		BB7C4FE125C2B8ED00DDEE91 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7C4FE025C2B8ED00DDEE91 /* NetworkDataFetcher.swift */; };
 		BB7C4FE425C2B8FA00DDEE91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7C4FE325C2B8FA00DDEE91 /* NetworkService.swift */; };
 		D253A35B25C1A6ED0003A155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A35A25C1A6ED0003A155 /* AppDelegate.swift */; };
-		D253A35D25C1A6ED0003A155 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A35C25C1A6ED0003A155 /* SceneDelegate.swift */; };
 		D253A35F25C1A6ED0003A155 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A35E25C1A6ED0003A155 /* StartViewController.swift */; };
 		D253A36425C1A6F20003A155 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D253A36325C1A6F20003A155 /* Assets.xcassets */; };
 		D253A36725C1A6F20003A155 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D253A36525C1A6F20003A155 /* LaunchScreen.storyboard */; };
@@ -32,7 +31,6 @@
 		BB7C4FE325C2B8FA00DDEE91 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		D253A35725C1A6ED0003A155 /* QRReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D253A35A25C1A6ED0003A155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D253A35C25C1A6ED0003A155 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D253A35E25C1A6ED0003A155 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		D253A36325C1A6F20003A155 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D253A36625C1A6F20003A155 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				D253A35A25C1A6ED0003A155 /* AppDelegate.swift */,
-				D253A35C25C1A6ED0003A155 /* SceneDelegate.swift */,
 				D253A39825C330C00003A155 /* UserData.swift */,
 				BBB1533E25C30247004D04AD /* Network */,
 				D253A38525C1B6140003A155 /* Settings View */,
@@ -218,7 +215,6 @@
 				D253A35B25C1A6ED0003A155 /* AppDelegate.swift in Sources */,
 				D253A39425C1C0780003A155 /* ResultView.swift in Sources */,
 				BB7C4FE125C2B8ED00DDEE91 /* NetworkDataFetcher.swift in Sources */,
-				D253A35D25C1A6ED0003A155 /* SceneDelegate.swift in Sources */,
 				D253A37425C1B1640003A155 /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -343,7 +339,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -368,7 +364,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mishak.QRReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -387,7 +383,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mishak.QRReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

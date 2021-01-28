@@ -13,11 +13,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     private var captureSession: AVCaptureSession!
     private var previewLayer: AVCaptureVideoPreviewLayer!
     private var device: AVCaptureDevice?
+    private var capturedObject: AVMetadataMachineReadableCodeObject?
 
     private var fetcher = NetworkDataFetcher()
+    private var userData: UserData = .shared
+    
     private var resultView: ResultView!
     private var flashON = false
-    private var capturedObject: AVMetadataMachineReadableCodeObject?
+    let systemSoundID: SystemSoundID = 1016
     
 
 // MARK: - View Lifecycle methods
@@ -25,7 +28,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         super.viewDidLoad()
         setupQRReader()
         navigationItem.title = "Scanner"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bolt.fill"), style: .plain, target: self, action: #selector(toggleFlash))
+        #warning("Setup image")
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bolt.fill"), style: .plain, target: self, action: #selector(toggleFlash))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,6 +127,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             if readableObject.stringValue != capturedObject?.stringValue {
                 capturedObject = readableObject
                 guard let stringValue = readableObject.stringValue else { return }
+                if userData.soundEnabled {
+                    AudioServicesPlaySystemSound (systemSoundID)
+                }
                 AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
                 found(code: stringValue)
             }
@@ -140,7 +147,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 // MARK: - Button Methods
     @objc private func toggleFlash() {
         flashON.toggle()
-        navigationItem.rightBarButtonItem?.image = flashON ? UIImage(systemName: "bolt.slash.fill") : UIImage(systemName: "bolt.fill")
+        #warning("Setup Image")
+//        navigationItem.rightBarButtonItem?.image = flashON ? UIImage(systemName: "bolt.slash.fill") : UIImage(systemName: "bolt.fill")
         
         guard let device = device, device.hasTorch else { return }
         

@@ -15,8 +15,8 @@ class StartViewController: UIViewController {
         startButton.layer.cornerRadius = 20
         navigationItem.title = "Scanner"
         #warning("gearshape is available only in iOS 14 - check other icons")
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(goToSettings))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.viewfinder"), style: .plain, target: self, action: #selector(gotToScanner))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(goToSettings))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.viewfinder"), style: .plain, target: self, action: #selector(gotToScanner))
         
         
     }
