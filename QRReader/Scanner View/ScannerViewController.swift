@@ -8,20 +8,17 @@
 import AVFoundation
 import UIKit
 
-enum Result {
-    case success
-    case alreadyChecked
-}
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     private var fetcher = NetworkDataFetcher()
-    
+    private var resultView: ResultView!
+    private var flashON = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupQRReader()
         navigationItem.title = "Scanner"
         #warning("Change icon when flash is on")
@@ -30,7 +27,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     @objc private func toggleFlash() {
         #warning("Refactor it!!")
-        
+        flashON.toggle()
+        navigationItem.rightBarButtonItem?.image = flashON ? UIImage(systemName: "bolt.slash.fill") : UIImage(systemName: "bolt.fill")
         guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
         guard device.hasTorch else { return }
 
@@ -53,6 +51,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        resultView = ResultView()
+        self.view.addSubview(self.resultView)
+        self.resultView.setupConstraints()
+        
+    }
     
     private func setupQRReader() {
         #warning("Refactor it!!")
@@ -126,18 +131,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             found(code: stringValue)
-            let resultVIew = ResultView()
-            resultVIew.scanResult = .success
-            view.addSubview(resultVIew)
         }
         
         dismiss(animated: true)
     }
     
     func found(code: String) {
-        print(code)
-        fetcher.sendAPIKeyTo(url: code) { answer in
-            
+        fetcher.sendAPIKeyTo(url: code) { [weak self] answer, message in
+            guard let self = self else { return }
+            self.resultView.scanResult = answer
         }
     }
 }

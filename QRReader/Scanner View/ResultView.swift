@@ -8,29 +8,59 @@
 import UIKit
 
 class ResultView: UIView {
-
-    var scanResult: Result? {
+    
+    var scanMessage: String?
+    var scanLabel: UILabel!
+    
+    var scanResult: NetworkAnswer? {
         didSet {
             guard let scanResult = scanResult else { return }
-            isHidden = false
+            
             switch scanResult {
-            case .success:
-//                resultLabel.text = "Scan successful!"
-                backgroundColor = .blue
-            case .alreadyChecked:
-//                resultLabel.text = "Already checked in!"
+            case .successfulCheckIn:
+                backgroundColor = .green
+            case .alreadyCheckedIn:
                 backgroundColor = .red
+            case .wrongAPIKey:
+                backgroundColor = .red
+            case .failure:
+                backgroundColor = .red
+            }
+            scanLabel.text = scanMessage ?? scanResult.rawValue
+            
+            UIView.animate(withDuration: 0.5) {
+                self.scanLabel.alpha = 1
+                self.alpha = 1
             }
         }
     }
     
-    init() {
-        let frame = CGRect(x: 0, y: 700, width: UIScreen.main.bounds.width, height: 100)
-        super.init(frame: frame)
+    func setupConstraints() {
+        setupViewConstraints()
+        setupLabelConstraints()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private func setupViewConstraints() {
+        translatesAutoresizingMaskIntoConstraints = false
+        bottomAnchor.constraint(equalTo: superview!.bottomAnchor).isActive = true
+        leadingAnchor.constraint(equalTo: superview!.leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: superview!.trailingAnchor).isActive = true
+        heightAnchor.constraint(equalToConstant: 120).isActive = true
+        alpha = 0
     }
     
+    private func setupLabelConstraints() {
+        scanLabel = UILabel()
+        addSubview(scanLabel)
+        scanLabel.translatesAutoresizingMaskIntoConstraints = false
+        scanLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 50).isActive = true
+        scanLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20).isActive = true
+        scanLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+
+        scanLabel.textAlignment = .center
+        scanLabel.numberOfLines = 0
+        scanLabel.textColor = .white
+        scanLabel.font = .systemFont(ofSize: 15, weight: .heavy)
+        scanLabel.alpha = 0
+    }
 }
