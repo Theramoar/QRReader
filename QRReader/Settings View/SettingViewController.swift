@@ -15,6 +15,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Settings"
         setupTable()
+        setupTapGesture()
     }
     
     private func setupTable() {
@@ -24,6 +25,16 @@ class SettingsViewController: UIViewController {
         tableView.register(UINib(nibName: "SoundCell", bundle: nil), forCellReuseIdentifier: "SoundCell")
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         tableView.tableFooterView = UIView()
+    }
+    
+    private func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        tapGesture.cancelsTouchesInView = false
+        self.tableView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func viewTapped() {
+        self.view.endEditing(true)
     }
 }
 

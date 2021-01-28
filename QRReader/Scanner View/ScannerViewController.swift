@@ -136,6 +136,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func found(code: String) {
+        print(code)
         fetcher.sendAPIKeyTo(url: code) { [weak self] answer, message in
             guard let self = self else { return }
             self.resultView.scanResult = answer

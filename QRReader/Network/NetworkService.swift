@@ -17,7 +17,7 @@ class NetworkService {
     
     func makeRequest(to url: URL, requestType type: RequestType, completion: @escaping (Data?) -> Void) {
         let request = createRequest(type: type, url: url)
-        
+
         let task = createDataTask(from: request) { data, error in
             guard let data = data, error == nil else {
                 completion(nil)
@@ -28,15 +28,15 @@ class NetworkService {
         task.resume()
     }
     
-//    private func createUrl(from path: String, queryItems: [URLQueryItem]? = nil) -> URL? {
-//        var components = URLComponents()
-//        components.scheme = ""//API.scheme.rawValue
-//        components.host = ""//API.host.rawValue
-//        components.path = path
-//        components.queryItems = queryItems
-//
-//        return components.url
-//    }
+    private func createUrl(from path: String, queryItems: [URLQueryItem]? = nil) -> URL? {
+        var components = URLComponents()
+        components.scheme = ""//API.scheme.rawValue
+        components.host = ""//API.host.rawValue
+        components.path = path
+        components.queryItems = queryItems
+
+        return components.url
+    }
     
     private func createRequest(type: RequestType, url: URL) -> URLRequest {
         var request = URLRequest(url: url)

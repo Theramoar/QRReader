@@ -23,25 +23,27 @@
                         <color key="textColor" systemColor="secondaryLabelColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00000000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIl-Zw-cZM">
-                        <rect key="frame" x="274" y="12" width="120" height="21"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter API Key here" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qcR-u4-4Dg">
+                        <rect key="frame" x="254" y="10" width="140" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="140" id="drs-WX-kvd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="iIl-Zw-cZM" secondAttribute="bottom" constant="11" id="3em-wE-l2Z"/>
-                    <constraint firstItem="iIl-Zw-cZM" firstAttribute="top" secondItem="Ui6-Vx-tKJ" secondAttribute="top" constant="12" id="6jA-rx-QoZ"/>
+                    <constraint firstItem="qcR-u4-4Dg" firstAttribute="top" secondItem="Ui6-Vx-tKJ" secondAttribute="top" constant="10" id="d2p-8L-q6m"/>
                     <constraint firstAttribute="bottom" secondItem="KHi-bJ-U09" secondAttribute="bottom" constant="11" id="fuh-HK-IUO"/>
+                    <constraint firstItem="qcR-u4-4Dg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KHi-bJ-U09" secondAttribute="trailing" constant="30" id="g7G-pr-5eI"/>
                     <constraint firstItem="KHi-bJ-U09" firstAttribute="leading" secondItem="Ui6-Vx-tKJ" secondAttribute="leading" constant="20" symbolic="YES" id="h3b-df-2Gd"/>
-                    <constraint firstItem="iIl-Zw-cZM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KHi-bJ-U09" secondAttribute="trailing" constant="30" id="iTc-8G-Qyt"/>
                     <constraint firstItem="KHi-bJ-U09" firstAttribute="top" secondItem="Ui6-Vx-tKJ" secondAttribute="top" constant="12" id="jD6-La-hPA"/>
-                    <constraint firstAttribute="trailing" secondItem="iIl-Zw-cZM" secondAttribute="trailing" constant="20" symbolic="YES" id="tVG-W5-X8G"/>
+                    <constraint firstAttribute="bottom" secondItem="qcR-u4-4Dg" secondAttribute="bottom" constant="10" id="kaB-mI-Tak"/>
+                    <constraint firstAttribute="trailing" secondItem="qcR-u4-4Dg" secondAttribute="trailing" constant="20" symbolic="YES" id="nUb-nU-A4g"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="APIKeyLabel" destination="iIl-Zw-cZM" id="FUd-43-uth"/>
+                <outlet property="keyTextField" destination="qcR-u4-4Dg" id="BRA-gs-Wz3"/>
             </connections>
             <point key="canvasLocation" x="-97" y="91"/>
         </tableViewCell>

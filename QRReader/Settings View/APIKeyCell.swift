@@ -7,10 +7,18 @@
 
 import UIKit
 
-class APIKeyCell: UITableViewCell {
-    @IBOutlet private var APIKeyLabel: UILabel!
+class APIKeyCell: UITableViewCell, UITextFieldDelegate {
+    @IBOutlet private var keyTextField: UITextField!
+    private let userData: UserData = .shared
     
     override func awakeFromNib() {
         selectionStyle = .none
+        #warning("Add Text font here")
+        keyTextField.delegate = self
+        keyTextField.text = userData.savedAPIKey
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        userData.savedAPIKey = textField.text ?? ""
     }
 }

@@ -24,6 +24,7 @@
 		D253A38E25C1B9B50003A155 /* SoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D253A38D25C1B9B50003A155 /* SoundCell.xib */; };
 		D253A39125C1BA8B0003A155 /* APIKeyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D253A39025C1BA8B0003A155 /* APIKeyCell.xib */; };
 		D253A39425C1C0780003A155 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A39325C1C0780003A155 /* ResultView.swift */; };
+		D253A39925C330C00003A155 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A39825C330C00003A155 /* UserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		D253A38D25C1B9B50003A155 /* SoundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoundCell.xib; sourceTree = "<group>"; };
 		D253A39025C1BA8B0003A155 /* APIKeyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APIKeyCell.xib; sourceTree = "<group>"; };
 		D253A39325C1C0780003A155 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		D253A39825C330C00003A155 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			children = (
 				D253A35A25C1A6ED0003A155 /* AppDelegate.swift */,
 				D253A35C25C1A6ED0003A155 /* SceneDelegate.swift */,
+				D253A39825C330C00003A155 /* UserData.swift */,
 				BBB1533E25C30247004D04AD /* Network */,
 				D253A38525C1B6140003A155 /* Settings View */,
 				D253A37D25C1B5660003A155 /* Start View */,
@@ -211,6 +214,7 @@
 				D253A38B25C1B8280003A155 /* SoundCell.swift in Sources */,
 				D253A37F25C1B57C0003A155 /* SettingViewController.swift in Sources */,
 				D253A35F25C1A6ED0003A155 /* StartViewController.swift in Sources */,
+				D253A39925C330C00003A155 /* UserData.swift in Sources */,
 				D253A35B25C1A6ED0003A155 /* AppDelegate.swift in Sources */,
 				D253A39425C1C0780003A155 /* ResultView.swift in Sources */,
 				BB7C4FE125C2B8ED00DDEE91 /* NetworkDataFetcher.swift in Sources */,

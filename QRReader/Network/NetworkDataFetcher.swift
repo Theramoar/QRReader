@@ -16,12 +16,16 @@ enum NetworkAnswer: String {
 
 class NetworkDataFetcher {
     private let network = NetworkService()
+    private var userData: UserData = .shared
     
     func sendAPIKeyTo(url: String, completion: @escaping (NetworkAnswer, String?) -> Void) {
-        guard let url = URL(string: url) else {
+        let apiKeyQuery = "&api_key=" + userData.savedAPIKey
+        let fullUrl = url + apiKeyQuery
+        guard let url = URL(string: fullUrl) else {
             completion(.failure, "Incorrect URL")
             return
         }
+        print(url)
         network.makeRequest(to: url, requestType: .get) { [weak self] data in
             if let data = data {
                 guard let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String: String] else {
