@@ -21,7 +21,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         setupQRReader()
         navigationItem.title = "Scanner"
-        #warning("Change icon when flash is on")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bolt.fill"), style: .plain, target: self, action: #selector(toggleFlash))
     }
     

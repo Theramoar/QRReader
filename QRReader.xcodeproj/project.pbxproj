@@ -59,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BBB1533E25C30247004D04AD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BB7C4FE025C2B8ED00DDEE91 /* NetworkDataFetcher.swift */,
+				BB7C4FE325C2B8FA00DDEE91 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		D253A34E25C1A6ED0003A155 = {
 			isa = PBXGroup;
 			children = (
@@ -80,8 +89,7 @@
 			children = (
 				D253A35A25C1A6ED0003A155 /* AppDelegate.swift */,
 				D253A35C25C1A6ED0003A155 /* SceneDelegate.swift */,
-				BB7C4FE025C2B8ED00DDEE91 /* NetworkDataFetcher.swift */,
-				BB7C4FE325C2B8FA00DDEE91 /* NetworkService.swift */,
+				BBB1533E25C30247004D04AD /* Network */,
 				D253A38525C1B6140003A155 /* Settings View */,
 				D253A37D25C1B5660003A155 /* Start View */,
 				D253A37C25C1B5550003A155 /* Scanner View */,
