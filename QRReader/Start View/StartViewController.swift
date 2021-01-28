@@ -13,11 +13,24 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         startButton.layer.cornerRadius = 20
-        navigationItem.title = "Scanner"
-        #warning("gearshape is available only in iOS 14 - check other icons")
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(goToSettings))
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.viewfinder"), style: .plain, target: self, action: #selector(gotToScanner))
+        setupNavigationController()
         
+    }
+    
+    private func setupNavigationController() {
+        navigationItem.title = "Scanner"
+        navigationItem.prompt = ""
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.navImageFromAsset("settings"), style: .plain, target: self, action: #selector(goToSettings))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.navImageFromAsset("nav-code-scanner"), style: .plain, target: self, action: #selector(gotToScanner))
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        if #available(iOS 13.0, *) {
+            navigationController?.navigationBar.backgroundColor = .systemBackground
+            navigationController?.navigationBar.tintColor = .label
+        } else {
+            navigationController?.navigationBar.backgroundColor = .white
+            navigationController?.navigationBar.tintColor = .black
+        }
         
     }
     
@@ -35,4 +48,6 @@ class StartViewController: UIViewController {
         gotToScanner()
     }
 }
+
+
 

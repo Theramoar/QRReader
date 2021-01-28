@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScannerViewController" customModule="QRReader" customModuleProvider="target">
             <connections>
+                <outlet property="videoView" destination="Zpf-4a-WgW" id="RR6-QA-39h"/>
                 <outlet property="view" destination="iN0-l3-epB" id="V1D-hr-xTW"/>
             </connections>
         </placeholder>
@@ -18,8 +19,20 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zpf-4a-WgW">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Zpf-4a-WgW" secondAttribute="bottom" id="1SR-bE-wbF"/>
+                <constraint firstItem="Zpf-4a-WgW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="G1x-d5-KuJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Zpf-4a-WgW" secondAttribute="trailing" id="PVs-Ay-BpT"/>
+                <constraint firstItem="Zpf-4a-WgW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pjo-52-oD1"/>
+            </constraints>
             <point key="canvasLocation" x="-288.40579710144931" y="153.34821428571428"/>
         </view>
     </objects>

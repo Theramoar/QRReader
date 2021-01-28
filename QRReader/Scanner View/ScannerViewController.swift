@@ -18,6 +18,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     private var fetcher = NetworkDataFetcher()
     private var userData: UserData = .shared
     
+    @IBOutlet private var videoView: UIView!
     private var resultView: ResultView!
     private var flashON = false
     let systemSoundID: SystemSoundID = 1016
@@ -28,8 +29,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         super.viewDidLoad()
         setupQRReader()
         navigationItem.title = "Scanner"
-        #warning("Setup image")
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bolt.fill"), style: .plain, target: self, action: #selector(toggleFlash))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.navImageFromAsset("sun"), style: .plain, target: self, action: #selector(toggleFlash))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +58,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
 // MARK: - Setup methods
     private func setupQRReader() {
-        view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
 
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
@@ -105,9 +104,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     private func addVideoLayer() {
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = view.layer.bounds
+        previewLayer.frame = videoView.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(previewLayer)
+        videoView.layer.addSublayer(previewLayer)
     }
     
     
@@ -147,8 +146,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 // MARK: - Button Methods
     @objc private func toggleFlash() {
         flashON.toggle()
-        #warning("Setup Image")
-//        navigationItem.rightBarButtonItem?.image = flashON ? UIImage(systemName: "bolt.slash.fill") : UIImage(systemName: "bolt.fill")
         
         guard let device = device, device.hasTorch else { return }
         
