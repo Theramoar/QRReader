@@ -19,14 +19,12 @@ class UserData {
     
     var savedAPIKey: String {
         didSet {
-            print("New API Key was set!")
             userDefaults.setValue(savedAPIKey, forKey: UserData.cachedAPIKey)
         }
     }
     
     var soundEnabled: Bool {
         didSet {
-            print("New Sound Option was set! - \(soundEnabled)")
             userDefaults.setValue(soundEnabled, forKey: UserData.cachedSoundOption)
         }
     }

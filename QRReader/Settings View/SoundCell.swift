@@ -15,8 +15,6 @@ class SoundCell: UITableViewCell {
     override func awakeFromNib() {
         selectionStyle = .none
         soundSwitch.isOn = userData.soundEnabled ? true : false
-        print(userData.soundEnabled)
-        print(soundSwitch.isOn)
     }
     
     

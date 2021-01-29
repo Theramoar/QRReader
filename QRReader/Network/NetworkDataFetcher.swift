@@ -25,7 +25,6 @@ class NetworkDataFetcher {
             completion(.failure, "Incorrect URL")
             return
         }
-        print(url)
         network.makeRequest(to: url, requestType: .get) { [weak self] data in
             if let data = data {
                 guard let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String: String] else {
