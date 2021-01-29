@@ -11,14 +11,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private let userData: UserData = .shared
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
         
-        let navVC = UINavigationController(rootViewController: StartViewController())
-        navVC.navigationBar.prefersLargeTitles = false
-        window?.rootViewController = navVC
+        if userData.savedAPIKey.isEmpty {
+            window?.rootViewController = EnterCodeViewController()
+        } else {
+            let navVC = UINavigationController(rootViewController: StartViewController())
+            navVC.navigationBar.prefersLargeTitles = false
+            window?.rootViewController = navVC
+        }
         window?.makeKeyAndVisible()
+        
         return true
     }
 }
