@@ -28,16 +28,6 @@ class NetworkService {
         task.resume()
     }
     
-    private func createUrl(from path: String, queryItems: [URLQueryItem]? = nil) -> URL? {
-        var components = URLComponents()
-        components.scheme = ""//API.scheme.rawValue
-        components.host = ""//API.host.rawValue
-        components.path = path
-        components.queryItems = queryItems
-
-        return components.url
-    }
-    
     private func createRequest(type: RequestType, url: URL) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = type.rawValue
