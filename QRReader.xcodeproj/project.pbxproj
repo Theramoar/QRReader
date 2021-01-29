@@ -96,8 +96,7 @@
 				D253A35A25C1A6ED0003A155 /* AppDelegate.swift */,
 				D253A39825C330C00003A155 /* UserData.swift */,
 				D253A39F25C3552E0003A155 /* Image ext.swift */,
-				D2D2C7A525C43E4300CB9E53 /* EnterCodeViewController.swift */,
-				D2D2C7A825C43E4E00CB9E53 /* EnterCodeView.xib */,
+				D2D2C7AB25C453D400CB9E53 /* EnterCode View */,
 				BBB1533E25C30247004D04AD /* Network */,
 				D253A38525C1B6140003A155 /* Settings View */,
 				D253A37D25C1B5660003A155 /* Start View */,
@@ -139,6 +138,15 @@
 				D253A38225C1B5950003A155 /* SettingsView.xib */,
 			);
 			path = "Settings View";
+			sourceTree = "<group>";
+		};
+		D2D2C7AB25C453D400CB9E53 /* EnterCode View */ = {
+			isa = PBXGroup;
+			children = (
+				D2D2C7A525C43E4300CB9E53 /* EnterCodeViewController.swift */,
+				D2D2C7A825C43E4E00CB9E53 /* EnterCodeView.xib */,
+			);
+			path = "EnterCode View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
