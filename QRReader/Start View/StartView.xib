@@ -44,7 +44,7 @@
                                 <constraint firstAttribute="height" constant="150" id="vH7-g3-khJ"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Scanning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqL-UQ-fG8">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Scanning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="jqL-UQ-fG8">
                             <rect key="frame" x="0.0" y="175" width="259.5" height="48"/>
                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
                             <nil key="textColor"/>
