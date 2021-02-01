@@ -8,7 +8,7 @@
 import Foundation
 
 enum NetworkAnswer: String {
-    case successfulCheckIn = "Checked in!"
+    case successfulCheckIn = "Checked In!"
     case alreadyCheckedIn = "Already checked in!"
     case wrongAPIKey = "Please verify your API key is correctly entered on the settings page"
     case failure = "Something went wrong!"
@@ -19,15 +19,19 @@ class NetworkDataFetcher {
     private var userData: UserData = .shared
     
     func sendAPIKeyTo(url: String, completion: @escaping (NetworkAnswer, String?) -> Void) {
-        let apiKeyQuery = "&api_key=" + userData.savedAPIKey
-        let fullUrl = url + apiKeyQuery
-        guard let url = URL(string: fullUrl) else {
+        guard let url = URL(string: url.withoutUrlEncoding()) else {
             completion(.failure, "Incorrect URL")
             return
         }
-        network.makeRequest(to: url, requestType: .get) { [weak self] data in
+        
+        guard let finalUrl = url.refactorForForAPIKey() else {
+            completion(.failure, "Incorrect URL")
+            return
+        }
+        network.makeRequest(to: finalUrl, requestType: .get) { [weak self] data in
             if let data = data {
                 guard let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String: String] else {
+                    print("Could not read json")
                     completion(.failure, "Something went wrong!")
                     return
                 }
@@ -38,20 +42,22 @@ class NetworkDataFetcher {
     
     
     private func checkReceivedResults(_ results: [String: String], completion: @escaping (NetworkAnswer, String?) -> Void) {
-        if let status = results["status"] {
-            if status == "1" {
-                completion(.successfulCheckIn, results["msg"])
-            } else if status == "2" {
-                completion(.alreadyCheckedIn, results["msg"])
-            } else {
+        if let msg = results["msg"] {
+            switch msg {
+            case NetworkAnswer.alreadyCheckedIn.rawValue:
+                completion(.alreadyCheckedIn, msg)
+            case NetworkAnswer.successfulCheckIn.rawValue:
+                completion(.successfulCheckIn, msg)
+            default:
                 completion(.failure, nil)
             }
-        } else if let securityCode = results["security_code"] {
-            if securityCode == "1" {
-                completion(.wrongAPIKey, nil)
-            } else {
-                completion(.failure, nil)
-            }
+        }
+        
+        else if let _ = results["security_code"] {
+            completion(.wrongAPIKey, nil)
+        }
+        else {
+            completion(.failure, nil)
         }
     }
 }

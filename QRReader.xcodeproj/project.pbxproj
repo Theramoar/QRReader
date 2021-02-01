@@ -25,6 +25,9 @@
 		D253A39425C1C0780003A155 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A39325C1C0780003A155 /* ResultView.swift */; };
 		D253A39925C330C00003A155 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A39825C330C00003A155 /* UserData.swift */; };
 		D253A3A025C3552E0003A155 /* Image ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253A39F25C3552E0003A155 /* Image ext.swift */; };
+		D2C0700925C88181004FD222 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C0700825C88181004FD222 /* FrameView.swift */; };
+		D2C0700C25C88697004FD222 /* URL ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C0700B25C88697004FD222 /* URL ext.swift */; };
+		D2C0700F25C886AD004FD222 /* String ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C0700E25C886AD004FD222 /* String ext.swift */; };
 		D2D2C7A625C43E4300CB9E53 /* EnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2C7A525C43E4300CB9E53 /* EnterCodeViewController.swift */; };
 		D2D2C7A925C43E4E00CB9E53 /* EnterCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2D2C7A825C43E4E00CB9E53 /* EnterCodeView.xib */; };
 /* End PBXBuildFile section */
@@ -50,6 +53,9 @@
 		D253A39325C1C0780003A155 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		D253A39825C330C00003A155 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		D253A39F25C3552E0003A155 /* Image ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image ext.swift"; sourceTree = "<group>"; };
+		D2C0700825C88181004FD222 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+		D2C0700B25C88697004FD222 /* URL ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL ext.swift"; sourceTree = "<group>"; };
+		D2C0700E25C886AD004FD222 /* String ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String ext.swift"; sourceTree = "<group>"; };
 		D2D2C7A525C43E4300CB9E53 /* EnterCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCodeViewController.swift; sourceTree = "<group>"; };
 		D2D2C7A825C43E4E00CB9E53 /* EnterCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnterCodeView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +101,7 @@
 			children = (
 				D253A35A25C1A6ED0003A155 /* AppDelegate.swift */,
 				D253A39825C330C00003A155 /* UserData.swift */,
-				D253A39F25C3552E0003A155 /* Image ext.swift */,
+				D2C0701125C888EF004FD222 /* Extensions */,
 				D2D2C7AB25C453D400CB9E53 /* EnterCode View */,
 				BBB1533E25C30247004D04AD /* Network */,
 				D253A38525C1B6140003A155 /* Settings View */,
@@ -113,6 +119,7 @@
 			children = (
 				D253A37325C1B1640003A155 /* ScannerViewController.swift */,
 				D253A39325C1C0780003A155 /* ResultView.swift */,
+				D2C0700825C88181004FD222 /* FrameView.swift */,
 				D253A37625C1B1710003A155 /* ScannerView.xib */,
 			);
 			path = "Scanner View";
@@ -138,6 +145,16 @@
 				D253A38225C1B5950003A155 /* SettingsView.xib */,
 			);
 			path = "Settings View";
+			sourceTree = "<group>";
+		};
+		D2C0701125C888EF004FD222 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D253A39F25C3552E0003A155 /* Image ext.swift */,
+				D2C0700B25C88697004FD222 /* URL ext.swift */,
+				D2C0700E25C886AD004FD222 /* String ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D2D2C7AB25C453D400CB9E53 /* EnterCode View */ = {
@@ -226,13 +243,16 @@
 			files = (
 				D2D2C7A625C43E4300CB9E53 /* EnterCodeViewController.swift in Sources */,
 				BB7C4FE425C2B8FA00DDEE91 /* NetworkService.swift in Sources */,
+				D2C0700925C88181004FD222 /* FrameView.swift in Sources */,
 				D253A38825C1B7EF0003A155 /* APIKeyCell.swift in Sources */,
 				D253A38B25C1B8280003A155 /* SoundCell.swift in Sources */,
 				D253A37F25C1B57C0003A155 /* SettingViewController.swift in Sources */,
 				D253A35F25C1A6ED0003A155 /* StartViewController.swift in Sources */,
 				D253A39925C330C00003A155 /* UserData.swift in Sources */,
+				D2C0700C25C88697004FD222 /* URL ext.swift in Sources */,
 				D253A3A025C3552E0003A155 /* Image ext.swift in Sources */,
 				D253A35B25C1A6ED0003A155 /* AppDelegate.swift in Sources */,
+				D2C0700F25C886AD004FD222 /* String ext.swift in Sources */,
 				D253A39425C1C0780003A155 /* ResultView.swift in Sources */,
 				BB7C4FE125C2B8ED00DDEE91 /* NetworkDataFetcher.swift in Sources */,
 				D253A37425C1B1640003A155 /* ScannerViewController.swift in Sources */,

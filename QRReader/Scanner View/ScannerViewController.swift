@@ -20,6 +20,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     @IBOutlet private var videoView: UIView!
     private var resultView: ResultView!
+    private var activityIndicator: UIActivityIndicatorView!
+    
+    
     private var flashON = false
     let systemSoundID: SystemSoundID = 1016
     
@@ -34,7 +37,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        setupFrame()
+        setupActivityIndicator()
         if (captureSession?.isRunning == false) {
             captureSession.startRunning()
         }
@@ -53,10 +57,29 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         resultView = ResultView()
         self.view.addSubview(self.resultView)
         self.resultView.setupConstraints()
+        
+        
     }
 
     
 // MARK: - Setup methods
+    private func setupActivityIndicator() {
+        if #available(iOS 13.0, *) {
+            activityIndicator = UIActivityIndicatorView(style: .medium)
+        } else {
+            activityIndicator = UIActivityIndicatorView(style: .gray)
+        }
+        activityIndicator.center = CGPoint(x: view.center.x, y: view.center.y - 30)
+            
+        self.videoView.addSubview(activityIndicator)
+    }
+    
+    private func setupFrame() {
+        let frameView = FrameView()
+        videoView.addSubview(frameView)
+        frameView.setupConstraints()
+    }
+    
     private func setupQRReader() {
         captureSession = AVCaptureSession()
 
@@ -126,9 +149,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             if readableObject.stringValue != capturedObject?.stringValue {
                 capturedObject = readableObject
                 guard let stringValue = readableObject.stringValue else { return }
-                if userData.soundEnabled {
-                    AudioServicesPlaySystemSound (systemSoundID)
-                }
                 AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
                 found(code: stringValue)
             }
@@ -136,8 +156,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func found(code: String) {
+        activityIndicator.startAnimating()
         fetcher.sendAPIKeyTo(url: code) { [weak self] answer, message in
             guard let self = self else { return }
+            if self.userData.soundEnabled {
+                AudioServicesPlaySystemSound(self.systemSoundID)
+            }
+            self.activityIndicator.stopAnimating()
             self.resultView.scanResult = answer
         }
     }
