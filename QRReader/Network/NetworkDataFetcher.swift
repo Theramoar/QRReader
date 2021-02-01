@@ -28,35 +28,29 @@ class NetworkDataFetcher {
             completion(.failure, "Incorrect URL")
             return
         }
-        network.makeRequest(to: finalUrl, requestType: .get) { [weak self] data in
-            if let data = data {
+        network.makeRequest(to: finalUrl, requestType: .get) { [weak self] data, httpCode in
+            if let data = data, let code = httpCode {
                 guard let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String: String] else {
                     print("Could not read json")
                     completion(.failure, "Something went wrong!")
                     return
                 }
-                self?.checkReceivedResults(json, completion: completion)
+                
+                self?.checkReceivedResults(json, httpStatus: code, completion: completion)
             }
         }
     }
     
     
-    private func checkReceivedResults(_ results: [String: String], completion: @escaping (NetworkAnswer, String?) -> Void) {
-        if let msg = results["msg"] {
-            switch msg {
-            case NetworkAnswer.alreadyCheckedIn.rawValue:
-                completion(.alreadyCheckedIn, msg)
-            case NetworkAnswer.successfulCheckIn.rawValue:
-                completion(.successfulCheckIn, msg)
-            default:
-                completion(.failure, nil)
-            }
-        }
-        
-        else if let _ = results["security_code"] {
+    private func checkReceivedResults(_ results: [String: String], httpStatus: Int, completion: @escaping (NetworkAnswer, String?) -> Void) {
+        switch httpStatus {
+        case 201:
+            completion(.successfulCheckIn, results["msg"])
+        case 403:
+            completion(.alreadyCheckedIn, results["msg"])
+        case 400:
             completion(.wrongAPIKey, nil)
-        }
-        else {
+        default:
             completion(.failure, nil)
         }
     }

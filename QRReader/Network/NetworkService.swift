@@ -15,15 +15,16 @@ enum RequestType: String {
 class NetworkService {
     private var session: URLSession = .shared
     
-    func makeRequest(to url: URL, requestType type: RequestType, completion: @escaping (Data?) -> Void) {
+    func makeRequest(to url: URL, requestType type: RequestType, completion: @escaping (Data?, Int?) -> Void) {
         let request = createRequest(type: type, url: url)
 
-        let task = createDataTask(from: request) { data, error in
-            guard let data = data, error == nil else {
-                completion(nil)
+        let task = createDataTask(from: request) { data, response, error in
+            guard let data = data, error == nil, let httpResponse = response as? HTTPURLResponse else {
+                completion(nil, nil)
                 return
             }
-            completion(data)
+            let httpCode = httpResponse.statusCode
+            completion(data, httpCode)
         }
         task.resume()
     }
@@ -35,10 +36,10 @@ class NetworkService {
         return request
     }
     
-    private func createDataTask(from request: URLRequest, completion: @escaping (Data?, Error?) -> Void) -> URLSessionDataTask {
-        session.dataTask(with: request) { data, _, error in
+    private func createDataTask(from request: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        session.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
-                completion(data, error)
+                completion(data, response, error)
             }
         }
     }
