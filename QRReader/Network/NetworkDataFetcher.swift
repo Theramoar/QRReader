@@ -32,7 +32,7 @@ class NetworkDataFetcher {
             if let data = data, let code = httpCode {
                 guard let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String: String] else {
                     print("Could not read json")
-                    completion(.failure, "Something went wrong!")
+                    completion(.failure, "Received incorrect message!")
                     return
                 }
                 

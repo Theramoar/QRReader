@@ -13,7 +13,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     private var captureSession: AVCaptureSession!
     private var previewLayer: AVCaptureVideoPreviewLayer!
     private var device: AVCaptureDevice?
-    private var capturedObject: AVMetadataMachineReadableCodeObject?
+    private var scannerEnabled = true
 
     private var fetcher = NetworkDataFetcher()
     private var userData: UserData = .shared
@@ -57,8 +57,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         resultView = ResultView()
         self.view.addSubview(self.resultView)
         self.resultView.setupConstraints()
-        
-        
     }
 
     
@@ -146,8 +144,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
-            if readableObject.stringValue != capturedObject?.stringValue {
-                capturedObject = readableObject
+            if scannerEnabled {
+                disableScannerForCertainTime()
                 guard let stringValue = readableObject.stringValue else { return }
                 AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
                 found(code: stringValue)
@@ -155,7 +153,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
-    func found(code: String) {
+    private func found(code: String) {
         activityIndicator.startAnimating()
         fetcher.sendAPIKeyTo(url: code) { [weak self] answer, message in
             guard let self = self else { return }
@@ -167,6 +165,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
+    private func disableScannerForCertainTime() {
+        scannerEnabled = false
+        let date = Date().addingTimeInterval(3)
+        let timer = Timer(fire: date, interval: 0, repeats: false) { [weak self] timer in
+            self?.scannerEnabled = true
+            timer.invalidate()
+        }
+        RunLoop.main.add(timer, forMode: .common)
+    }
 
 // MARK: - Button Methods
     @objc private func toggleFlash() {
